@@ -57,12 +57,12 @@ const leerInput = async( message ) => {
     return desc;
 }
 
-const menuTareasBorrar = async (tareas = []) => {
-    const choices = tareas.map( (tarea, i) => {
+const menuCiudadesListar = async (ciudades = []) => {
+    const choices = ciudades.map( (ciudad, i) => {
         const idx = `${i+1}.`.green;
         return {
-            value: tarea.id,
-            name: ` ${idx} ${tarea.desc} `
+            value: ciudad.id,
+            name: ` ${idx} ${ciudad.ciudad} `
         }
     });
 
@@ -75,13 +75,13 @@ const menuTareasBorrar = async (tareas = []) => {
         {
             type: 'list',
             name: 'id',
-            message: 'Borrar',
+            message: 'Seleccione Ciudad',
             choices
         }
     ];
     console.clear();
     console.log("=============================================".green.bold);
-    console.log("   SELECCIONE LA TAREA QUE DESEA BORRAR      ".white.bold);
+    console.log("  SELECCIONE LA CIUDAD QUE DESEA CONSULTAR:  ".white.bold);
     console.log("=============================================\n".green.bold);    
     const { id } = await inquirer.prompt(questions);
     return id;
@@ -129,7 +129,7 @@ export {
     inquirerMenu,
     pause,
     leerInput,
-    menuTareasBorrar,
+    menuCiudadesListar,
     confirm,
     menuTareasUpdate
 };
